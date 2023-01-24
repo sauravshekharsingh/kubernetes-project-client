@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lavender;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main {
+  margin-top: 10px;
+}
+
+.home,
+.friends,
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home {
+  flex-direction: column;
+}
+
+.profile {
+  align-items: flex-start;
+}
+
+.profile-card {
+  margin: 10px;
+}
+
+.compose,
+.posts,
+.profile-card,
+.friends-card {
+  width: 40%;
+}
+
+.profile-card .user-info > div {
+  margin: 10px 0;
+}
+
+.profile-card-label {
+  color: grey;
+  margin: 10px 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .compose,
+  .posts,
+  .profile-card,
+  .friends-card {
+    width: 95%;
+  }
+
+  .profile {
+    flex-direction: column;
+    align-items: center;
+  }
+}
