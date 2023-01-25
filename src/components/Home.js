@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
-import PostsList from './PostsList';
-import { createPost, fetchPosts } from '../actions/posts';
-import { Button } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+import PostsList from "./PostsList";
+import { createPost, fetchPosts } from "../actions/posts";
+import { Button } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
 
 export default function Home() {
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState("");
 
   const dispatch = useDispatch();
 
@@ -21,6 +21,7 @@ export default function Home() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createPost(content));
+    setContent("");
   };
 
   return (
@@ -35,13 +36,13 @@ export default function Home() {
             variant="outlined"
             name="content"
             onChange={(e) => setContent(e.target.value)}
-            style={{ width: '100%' }}
+            style={{ width: "100%" }}
           />
         </CardContent>
         <CardActions
           style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
+            display: "flex",
+            justifyContent: "flex-end",
           }}
         >
           <Button

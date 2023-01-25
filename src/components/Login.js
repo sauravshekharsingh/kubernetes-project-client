@@ -1,31 +1,31 @@
-import { Button, CircularProgress, TextField } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+import { Button, CircularProgress, TextField } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, Redirect } from "react-router-dom";
 
-import { clearUserState, login } from '../actions/user';
-import Alert from '@material-ui/lab/Alert';
-import Avatar from '@material-ui/core/Avatar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import { clearUserState, login } from "../actions/user";
+import Alert from "@material-ui/lab/Alert";
+import Avatar from "@material-ui/core/Avatar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -36,8 +36,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const classes = useStyles();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const auth = useSelector((state) => state.auth);
 
@@ -80,7 +80,7 @@ export default function Login() {
             id="username"
             label="Username"
             name="username"
-            autoComplete="email"
+            autoComplete="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -106,14 +106,14 @@ export default function Login() {
             disabled={inProgress}
             onClick={handleSubmit}
           >
-            {inProgress ? <CircularProgress></CircularProgress> : 'Sign In'}
+            {inProgress ? <CircularProgress></CircularProgress> : "Sign In"}
           </Button>
-          <Grid container style={{ display: 'flex', justifyContent: 'center' }}>
+          <Grid container style={{ display: "flex", justifyContent: "center" }}>
             <Grid item>
               <NavLink
                 to={`/signup`}
                 variant="body2"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: "none" }}
               >
                 {"Don't have an account? Sign Up"}
               </NavLink>

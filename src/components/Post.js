@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
-import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import CommentOutlinedIcon from '@material-ui/icons/CommentOutlined';
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
-import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
-import { formatDate } from '../helpers/utils';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import Collapse from "@material-ui/core/Collapse";
+import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import { red } from "@material-ui/core/colors";
+import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import CommentOutlinedIcon from "@material-ui/icons/CommentOutlined";
+import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
+import ShareOutlinedIcon from "@material-ui/icons/ShareOutlined";
+import { formatDate } from "../helpers/utils";
+import { useDispatch, useSelector } from "react-redux";
 import {
   createComment,
   deletePost,
   likePost,
   unlikePost,
-} from '../actions/posts';
-import { Button, TextField } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+} from "../actions/posts";
+import { Button, TextField } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,17 +33,17 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: "56.25%", // 16:9
   },
   expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
       duration: theme.transitions.duration.shortest,
     }),
   },
   expandOpen: {
-    transform: 'rotate(180deg)',
+    transform: "rotate(180deg)",
   },
   avatar: {
     backgroundColor: red[500],
@@ -52,17 +52,17 @@ const useStyles = makeStyles((theme) => ({
     margin: 10,
   },
   commentInput: {
-    width: '70%',
+    width: "70%",
   },
   commentButton: {
-    width: '30%',
+    width: "30%",
   },
 }));
 
 export default function Post({ post }) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
   const auth = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
@@ -81,20 +81,20 @@ export default function Post({ post }) {
     if (auth.user && like.createdBy._id === auth.user.id) {
       isLikedByUser = true;
     }
-    return '';
+    return "";
   });
 
   const handleLike = () => {
-    dispatch(likePost('Post', post._id));
+    dispatch(likePost("Post", post._id));
   };
 
   const handleUnlike = () => {
-    dispatch(unlikePost('Post', post._id));
+    dispatch(unlikePost("Post", post._id));
   };
 
   const handleComment = (e) => {
     dispatch(createComment(comment, post._id));
-    setComment('');
+    setComment("");
   };
 
   const handleDelete = () => {
@@ -104,7 +104,9 @@ export default function Post({ post }) {
   return (
     <Card className={classes.root}>
       <CardHeader
-        avatar={<Avatar className={classes.avatar}></Avatar>}
+        avatar={
+          <Avatar className={classes.avatar}>{post.createdBy.name[0]}</Avatar>
+        }
         action={
           isUserAuthor && (
             <IconButton aria-label="settings" onClick={handleDelete}>
@@ -125,7 +127,7 @@ export default function Post({ post }) {
       <CardActions disableSpacing>
         <div
           className="action"
-          style={{ display: 'flex', alignItems: 'center' }}
+          style={{ display: "flex", alignItems: "center" }}
         >
           {!isLikedByUser && (
             <IconButton onClick={handleLike}>
@@ -151,7 +153,7 @@ export default function Post({ post }) {
         <Typography>{post.comments.length} Comments</Typography>
         <IconButton
           onClick={() =>
-            window.open(`https://wa.me/?text=${post.content}`, '_blank')
+            window.open(`https://wa.me/?text=${post.content}`, "_blank")
           }
         >
           <ShareOutlinedIcon />
