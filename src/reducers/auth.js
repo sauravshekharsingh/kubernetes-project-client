@@ -7,14 +7,14 @@ import {
   LOGIN_FAILED,
   CLEAR_USER_STATE,
   LOGOUT_USER,
-} from '../actions/actionTypes';
+} from "../actions/actionTypes";
 
 const initialAuthState = {
   user: {},
   isLoggedIn: false,
   inProgress: false,
   errors: [],
-  message: '',
+  message: "",
 };
 
 export default function auth(state = initialAuthState, action) {
@@ -30,7 +30,7 @@ export default function auth(state = initialAuthState, action) {
       return {
         ...state,
         errors: [],
-        message: '',
+        message: "",
         inProgress: true,
       };
 
@@ -68,7 +68,7 @@ export default function auth(state = initialAuthState, action) {
       return {
         ...state,
         inProgress: false,
-        message: '',
+        message: "",
         errors: [],
       };
 

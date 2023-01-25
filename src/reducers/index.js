@@ -1,13 +1,11 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import posts from './posts';
-import auth from './auth';
-import search from './search';
-import friend from './friend';
+import posts from "./posts";
+import auth from "./auth";
+import search from "./search";
 
 export default combineReducers({
   posts,
   auth,
   search,
-  friend,
 });

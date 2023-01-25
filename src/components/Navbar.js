@@ -1,31 +1,30 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { logoutUser } from '../actions/user';
+import { logoutUser } from "../actions/user";
 
-import { alpha, makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import { alpha, makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
 // import InputBase from '@material-ui/core/InputBase';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import MenuIcon from "@material-ui/icons/Menu";
 // import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
-import PeopleIcon from '@material-ui/icons/People';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import { Link } from 'react-router-dom';
-import { VpnKey } from '@material-ui/icons';
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import MoreIcon from "@material-ui/icons/MoreVert";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import HomeIcon from "@material-ui/icons/Home";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { Link } from "react-router-dom";
+import { VpnKey } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -35,62 +34,62 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    display: 'block',
+    display: "block",
   },
   search: {
-    position: 'relative',
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
-      width: 'auto',
+      width: "auto",
     },
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   inputRoot: {
-    color: 'inherit',
+    color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
     },
   },
   sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
     },
   },
   sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
   },
   list: {
     width: 250,
   },
   fullList: {
-    width: 'auto',
+    width: "auto",
   },
 }));
 
@@ -110,7 +109,7 @@ export default function Navbar(props) {
 
   const logout = () => {
     handleMenuClose();
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     dispatch(logoutUser());
   };
 
@@ -134,14 +133,14 @@ export default function Navbar(props) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={menuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
@@ -151,10 +150,10 @@ export default function Navbar(props) {
             <Link
               to={`/users/${auth.user.id}`}
               style={{
-                textDecoration: 'none',
-                color: 'black',
-                display: 'flex',
-                alignItems: 'center',
+                textDecoration: "none",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
               }}
             >
               Profile
@@ -166,14 +165,14 @@ export default function Navbar(props) {
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
@@ -183,10 +182,10 @@ export default function Navbar(props) {
             <Link
               to={`/users/${auth.user.id}`}
               style={{
-                textDecoration: 'none',
-                color: 'black',
-                display: 'flex',
-                alignItems: 'center',
+                textDecoration: "none",
+                color: "black",
+                display: "flex",
+                alignItems: "center",
               }}
             >
               <IconButton
@@ -225,8 +224,8 @@ export default function Navbar(props) {
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
     ) {
       return;
     }
@@ -245,7 +244,7 @@ export default function Navbar(props) {
         {auth.isLoggedIn && (
           <div>
             <div>
-              <Link to={`/`} style={{ textDecoration: 'none', color: 'black' }}>
+              <Link to={`/`} style={{ textDecoration: "none", color: "black" }}>
                 <ListItem button>
                   <ListItemIcon>
                     <HomeIcon />
@@ -255,24 +254,13 @@ export default function Navbar(props) {
               </Link>
               <Link
                 to={`/users/${auth.user.id}`}
-                style={{ textDecoration: 'none', color: 'black' }}
+                style={{ textDecoration: "none", color: "black" }}
               >
                 <ListItem button>
                   <ListItemIcon>
                     <AccountCircle />
                   </ListItemIcon>
                   <ListItemText primary={`Profile`} />
-                </ListItem>
-              </Link>
-              <Link
-                to={`/friends`}
-                style={{ textDecoration: 'none', color: 'black' }}
-              >
-                <ListItem button>
-                  <ListItemIcon>
-                    <PeopleIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={`Friends`} />
                 </ListItem>
               </Link>
             </div>
@@ -282,7 +270,7 @@ export default function Navbar(props) {
           <div>
             <Link
               to={`/login`}
-              style={{ textDecoration: 'none', color: 'black' }}
+              style={{ textDecoration: "none", color: "black" }}
             >
               <ListItem button>
                 <ListItemIcon>
@@ -293,7 +281,7 @@ export default function Navbar(props) {
             </Link>
             <Link
               to={`/signup`}
-              style={{ textDecoration: 'none', color: 'black' }}
+              style={{ textDecoration: "none", color: "black" }}
             >
               <ListItem button>
                 <ListItemIcon>
@@ -325,11 +313,11 @@ export default function Navbar(props) {
     <div>
       <div>
         <Drawer
-          anchor={'left'}
-          open={state['left']}
-          onClose={toggleDrawer('left', false)}
+          anchor={"left"}
+          open={state["left"]}
+          onClose={toggleDrawer("left", false)}
         >
-          {list('left')}
+          {list("left")}
         </Drawer>
       </div>
       <div className={classes.grow}>
@@ -340,7 +328,7 @@ export default function Navbar(props) {
               className={classes.menuButton}
               color="inherit"
               aria-label="open drawer"
-              onClick={toggleDrawer('left', true)}
+              onClick={toggleDrawer("left", true)}
             >
               <MenuIcon />
             </IconButton>

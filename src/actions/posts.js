@@ -1,13 +1,13 @@
-import { APIUrls } from '../helpers/urls';
-import { getAuthTokenFromLocalStorage, getFormBody } from '../helpers/utils';
-import { FETCH_POSTS_START, UPDATE_POSTS } from './actionTypes';
+import { APIUrls } from "../helpers/urls";
+import { getAuthTokenFromLocalStorage, getFormBody } from "../helpers/utils";
+import { FETCH_POSTS_START, UPDATE_POSTS } from "./actionTypes";
 
 export function fetchPosts() {
   return (dispatch) => {
     dispatch(fetchPostsStart());
     const url = APIUrls.fetchPosts();
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: {
         Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
       },
@@ -31,9 +31,9 @@ export function createPost(content) {
   return (dispatch) => {
     const url = APIUrls.createPost();
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        "Content-Type": "application/x-www-form-urlencoded",
         Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
       },
       body: getFormBody({ content }),
@@ -51,9 +51,9 @@ export function deletePost(postId) {
   return (dispatch) => {
     const url = APIUrls.deletePost(postId);
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        "Content-Type": "application/x-www-form-urlencoded",
         Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
       },
       body: getFormBody({ postId }),
@@ -71,9 +71,9 @@ export function createComment(content, postId) {
   return (dispatch) => {
     const url = APIUrls.createComment(postId);
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        "Content-Type": "application/x-www-form-urlencoded",
         Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
       },
       body: getFormBody({ content }),
@@ -91,9 +91,9 @@ export function likePost(on, postId) {
   return (dispatch) => {
     const url = APIUrls.likePost(on, postId);
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        "Content-Type": "application/x-www-form-urlencoded",
         Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
       },
     };
@@ -110,9 +110,9 @@ export function unlikePost(on, postId) {
   return (dispatch) => {
     const url = APIUrls.unlikePost(on, postId);
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        "Content-Type": "application/x-www-form-urlencoded",
         Authorization: `Bearer ${getAuthTokenFromLocalStorage()}`,
       },
     };

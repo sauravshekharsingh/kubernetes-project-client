@@ -1,11 +1,9 @@
 import { APIUrls } from "../helpers/urls";
 import { getAuthTokenFromLocalStorage } from "../helpers/utils";
 import { FETCH_PROFILE_SUCCESS, SEARCH_PROFILE_SUCCESS } from "./actionTypes";
-import { fetchFriends } from "./friend";
 
 export function fetchUserProfile(userId) {
   return (dispatch) => {
-    dispatch(fetchFriends());
     const url = APIUrls.fetchUserProfile(userId);
     const options = {
       method: "POST",
