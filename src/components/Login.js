@@ -1,3 +1,5 @@
+/* ----------------------------- Login component ---------------------------- */
+
 import { Button, CircularProgress, TextField } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

@@ -1,32 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+/* --------------------------------- Signup component --------------------------------- */
 
-import './styles.css';
-import { clearUserState, signup } from '../actions/user';
-import Alert from '@material-ui/lab/Alert';
-import { Button, CircularProgress, TextField } from '@material-ui/core';
-import Avatar from '@material-ui/core/Avatar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, Redirect } from "react-router-dom";
+
+import "./styles.css";
+import { clearUserState, signup } from "../actions/user";
+import Alert from "@material-ui/lab/Alert";
+import { Button, CircularProgress, TextField } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(1),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -37,11 +39,11 @@ const useStyles = makeStyles((theme) => ({
 export default function Signup() {
   const classes = useStyles();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const dispatch = useDispatch();
 
@@ -149,14 +151,14 @@ export default function Signup() {
             className={classes.submit}
             onClick={handleSubmit}
           >
-            {inProgress ? <CircularProgress></CircularProgress> : 'Sign Up'}
+            {inProgress ? <CircularProgress></CircularProgress> : "Sign Up"}
           </Button>
           <Grid container justifyContent="center">
             <Grid item>
               <NavLink
                 to={`/login`}
                 variant="body2"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: "none" }}
               >
                 Already have an account? Sign in
               </NavLink>
