@@ -1,4 +1,6 @@
-import { Route, Redirect } from 'react-router-dom';
+/* ------------------------- PrivateRoute component ------------------------- */
+
+import { Route, Redirect } from "react-router-dom";
 
 const PrivateRoute = (privateRouteProps) => {
   const { isLoggedIn, path, component: Component } = privateRouteProps;
