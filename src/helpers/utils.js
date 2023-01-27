@@ -1,3 +1,5 @@
+/* ---------------------------- Utility functions --------------------------- */
+
 export function getFormBody(params) {
   let formBody = [];
 
@@ -5,25 +7,25 @@ export function getFormBody(params) {
     let encodedKey = encodeURIComponent(property);
     let encodedValue = encodeURIComponent(params[property]);
 
-    formBody.push(encodedKey + '=' + encodedValue);
+    formBody.push(encodedKey + "=" + encodedValue);
   }
 
-  return formBody.join('&');
+  return formBody.join("&");
 }
 
 export function getAuthTokenFromLocalStorage() {
-  return localStorage.getItem('token');
+  return localStorage.getItem("token");
 }
 
 export function formatDate(date) {
   date = new Date(date);
 
-  const formattedDate = date.toLocaleString('en-IN', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
+  const formattedDate = date.toLocaleString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
   });
 
   return formattedDate;
