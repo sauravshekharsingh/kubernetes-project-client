@@ -1,4 +1,4 @@
-/* ----------------------------- Post component ----------------------------- */
+/* ----------------------------- Post components ----------------------------- */
 
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
