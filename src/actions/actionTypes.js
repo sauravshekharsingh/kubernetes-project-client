@@ -1,3 +1,5 @@
+/* ------------------------------ Action types ------------------------------ */
+
 // Post
 export const FETCH_POSTS_START = "FETCH_POSTS_START";
 export const UPDATE_POSTS = "UPDATE_POSTS";
