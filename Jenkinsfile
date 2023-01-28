@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Code Checkout') {
+        stage('SCM Code Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/sauravshekharsingh/kubernetes-project-client.git'
             }
