@@ -1,3 +1,5 @@
+/* ------------------------------ Posts actions ----------------------------- */
+
 import { APIUrls } from "../helpers/urls";
 import { getAuthTokenFromLocalStorage, getFormBody } from "../helpers/utils";
 import { FETCH_POSTS_START, UPDATE_POSTS } from "./actionTypes";
