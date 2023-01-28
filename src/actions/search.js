@@ -1,3 +1,5 @@
+/* --------------------------------- Search --------------------------------- */
+
 import { APIUrls } from "../helpers/urls";
 import { getAuthTokenFromLocalStorage } from "../helpers/utils";
 import { FETCH_PROFILE_SUCCESS, SEARCH_PROFILE_SUCCESS } from "./actionTypes";
