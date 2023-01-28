@@ -1,4 +1,6 @@
-import { getFormBody } from '../helpers/utils';
+/* ------------------------------ User actions ------------------------------ */
+
+import { getFormBody } from "../helpers/utils";
 import {
   SIGNUP_FAILED,
   AUTH_START,
@@ -8,9 +10,9 @@ import {
   LOGIN_FAILED,
   AUTHENTICATE_USER,
   LOGOUT_USER,
-} from './actionTypes';
+} from "./actionTypes";
 
-import { APIUrls } from '../helpers/urls';
+import { APIUrls } from "../helpers/urls";
 
 function authStart() {
   return {
@@ -30,9 +32,9 @@ export function login(username, password) {
     dispatch(authStart());
     const url = APIUrls.login();
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       body: getFormBody({
         username,
@@ -43,7 +45,7 @@ export function login(username, password) {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          localStorage.setItem('token', data.token);
+          localStorage.setItem("token", data.token);
           dispatch(loginSuccess(data.message, data.user));
         } else {
           dispatch(loginFailed(data.message));
@@ -73,9 +75,9 @@ export function signup(name, email, username, password, confirm_password) {
     dispatch(authStart());
     const url = APIUrls.signup();
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       body: getFormBody({
         name,
